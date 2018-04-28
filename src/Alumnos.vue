@@ -1,17 +1,19 @@
 <template>
 	<div class="row">
 		<div class="col-md-12">
-			<form class="form-inline">
-				<div class="form-group">
-				   <label for="exampleInputName2">Nombre:</label>
-				   <input type="text" class="form-control" v-model="nuevo.nombre" id="exampleInputName2" placeholder="Jane Doe">
-				</div>
-				<div class="form-group">
-				  <label for="exampleInputEmail2">Apellidos:</label>
-				  <input type="email" class="form-control" v-model="nuevo.apellidos" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-				</div>
-				<button class="btn btn-success" v-on:click="agregar">Agregar</button>
-			</form>
+			<div class="new-user">
+				<form class="form-inline">
+					<div class="form-group">
+					   <label for="exampleInputName2">Nombre:</label>
+					   <input type="text" class="form-control" v-model="nuevo.nombre" id="exampleInputName2" placeholder="Juan">
+					</div>
+					<div class="form-group">
+					  <label for="exampleInputEmail2">Apellidos:</label>
+					  <input type="email" class="form-control" v-model="nuevo.apellidos" id="exampleInputEmail2" placeholder="Perez">
+					</div>
+					<button class="btn btn-success" v-on:click="agregar">Agregar</button>
+				</form>
+			</div>
 		</div>
 		<div class="col-md-12">
 			<table class="table table-striped">
@@ -69,6 +71,10 @@ export default {
 		}
 	},
 
+	mounted(){
+		this.$parent.msg = 'Listado de alumnos';
+	},
+
 	methods: {
 
 		agregar: function () {
@@ -86,3 +92,7 @@ export default {
 	}
 }
 </script>
+
+<style>
+	.new-user { margin: 1em 0 2em; }
+</style>
