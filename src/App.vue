@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <img src="./assets/logo.png" width="70px">
         </div>
         <div class="col-md-9">
@@ -11,17 +11,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <h4>Menú</h4>
           <ul>
-            <li><a href="">Alumnos</a></li>
+            <li><router-link to="/alumnos">Alumnos</router-link></li>
             <li><a href="">Maestros</a></li>
             <li><a href="">Grupos</a></li>
             <li><a href="">Registro asistencia</a></li>
           </ul>
         </div>
-        <div class="col-md-9">
-          <alumnos></alumnos>
+        <div class="col-md-10">
+          <router-view></router-view>
         </div>
       </div>
     </div>
@@ -29,11 +29,9 @@
 </template>
 
 <script>
-import alumnos from './Alumnos.vue'
 
 export default {
   name: 'app',
-  components: { alumnos },
   data () {
     return {
       msg: 'Aplicación de control de asistencia 1.0',
