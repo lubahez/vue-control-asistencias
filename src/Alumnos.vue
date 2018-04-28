@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="new-user">
-				<form class="form-inline">
+				<div class="form-inline">
 					<div class="form-group">
 					   <label for="exampleInputName2">Nombre:</label>
 					   <input type="text" class="form-control" v-model="nuevo.nombre" id="exampleInputName2" placeholder="Juan">
@@ -12,7 +12,7 @@
 					  <input type="email" class="form-control" v-model="nuevo.apellidos" id="exampleInputEmail2" placeholder="Perez">
 					</div>
 					<button class="btn btn-success" v-on:click="agregar">Agregar</button>
-				</form>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-12">

@@ -15,8 +15,8 @@
           <h4>Menú</h4>
           <ul>
             <li><router-link to="/alumnos">Alumnos</router-link></li>
-            <li><a href="">Maestros</a></li>
-            <li><a href="">Grupos</a></li>
+            <li><router-link to="/maestros">Maestros</router-link></li>
+            <li><router-link to="/grupos">Grupos</router-link></li>
             <li><a href="">Registro asistencia</a></li>
           </ul>
         </div>
