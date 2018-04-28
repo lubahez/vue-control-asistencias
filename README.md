@@ -1,6 +1,6 @@
-# control-asistencia
+# Control de asistencia
 
-> Control de Asistencia
+> Aplicación básica para el control de asistencia con vuejs
 
 ## Build Setup
 
