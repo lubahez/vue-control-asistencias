@@ -42,7 +42,7 @@
 <script>
 export default {
 	name: 'maestros',
-	data () {
+	data: function () {
 		return {
 			nuevo: {},
 			maestros:[
@@ -52,7 +52,7 @@ export default {
 		}
 	},
 
-	mounted(){
+	mounted: function () {
 		this.$parent.msg = 'Listado de maestros';
 	},
 

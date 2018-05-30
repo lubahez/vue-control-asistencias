@@ -32,7 +32,7 @@
 
 export default {
   name: 'app',
-  data () {
+  data: function () {
     return {
       msg: 'Aplicación de control de asistencia 1.0',
       alumnos:[],

@@ -59,9 +59,11 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
 	name: 'alumnos',
-	data () {
+	data: function () {
 		return {
 			nuevo: {},
 			alumnos:[
@@ -71,11 +73,20 @@ export default {
 		}
 	},
 
-	mounted(){
+	mounted: function (){
 		this.$parent.msg = 'Listado de alumnos';
+		this.listar();
 	},
 
 	methods: {
+
+		listar: function () {
+			axios.get('App.php?uri=alumnos')
+			.then((response) => {
+				console.log(response.data);
+				this.alumnos = response.data;
+			});
+		},
 
 		agregar: function () {
 			this.alumnos.push(this.nuevo);

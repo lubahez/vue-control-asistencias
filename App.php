@@ -1,11 +1,11 @@
 <?php
-require_once("Connection.php");
+require_once("modelos/Connection.php");
 
-require_once("Alumno.php");
-require_once("Maestro.php");
-require_once("Grupo.php");
-require_once("Clase.php");
-require_once("Asistencia.php");
+require_once("modelos/Alumno.php");
+require_once("modelos/Maestro.php");
+require_once("modelos/Grupo.php");
+require_once("modelos/Clase.php");
+require_once("modelos/Asistencia.php");
 
 /**
 * 
@@ -108,15 +108,17 @@ class Api
 
 header('Content-Type: application/json');
 
+//echo json_encode(['hola' => 'mundo']);
 $api = new Api();
 
-$api->uri = 'alumnos'; //$_GET['uri']
+$api->uri = $_GET['uri'];
 $api->server_method = $_SERVER['REQUEST_METHOD'];
 
 $api->resolve();
+//echo $_GET['uri'];
 $api->call();
 
-$api->debug();
+//$api->debug();
 
 
 //Expresiones regulares preg_match($regexp, $field)

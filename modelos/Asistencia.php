@@ -1,10 +1,9 @@
 <?php
-require_once("Connection.php");
 
 /**
  * Class Post
  */
-class Alumno
+class Asistencia
 {
     /**
      * @var PDO
