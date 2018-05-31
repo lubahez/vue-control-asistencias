@@ -81,7 +81,13 @@ export default {
 	methods: {
 
 		listar: function () {
-			axios.get('App.php?uri=alumnos')
+			axios.get('api/v1/alumnos')
+			.then((response) => {
+				console.log(response.data);
+				this.alumnos = response.data;
+			});
+
+			axios.post('api/v1/test')
 			.then((response) => {
 				console.log(response.data);
 				this.alumnos = response.data;

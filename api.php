@@ -17,12 +17,25 @@ class Api
 	public $item		= array();
 	protected $model 	= '';
 	protected $method 	= '';
+	protected $args		= array();
 
 	protected $response = array();
 	public $results  = null;
 
-	function __construct()
+	function __construct($request_uri, $server_method)
 	{
+		$this->uri 			 = $request_uri;
+		$this->server_method = $server_method;
+
+		/*switch ($server_method) {
+			case 'GET':
+				$this->uri = $request_uri;
+			break;
+			case 'POST':
+				$this->uri = $request_uri;
+				$this->item = $_POST['item'];
+			break;
+		}*/
 	}
 
 	public function call()
@@ -48,8 +61,15 @@ class Api
 
 		$url 	= explode('/', $this->uri);
 		$modelo = $url[0];
-		$id 	= (isset($url[1]))? $url[1]: 0;
+		$id 	= (isset($url[1]))? true: false;
 
+		$this->set_class($modelo);
+		$this->set_class_method($id);
+
+	}
+
+	private function set_class($modelo)
+	{
 		switch ($modelo) {
 			case 'alumnos':
 				$this->model = 'Alumno';
@@ -70,9 +90,6 @@ class Api
 				# code...
 				break;
 		}
-
-		$this->set_class_method($id);
-
 	}
 
 	private function set_class_method($id_exists = false)
@@ -86,6 +103,7 @@ class Api
 				break;
 			case 'POST':
 				$this->method = 'create';
+				$this->item   = $_POST['item'];
 				break;
 			case 'PUT':
 				$this->method = 'update';
@@ -109,13 +127,12 @@ class Api
 header('Content-Type: application/json');
 
 //echo json_encode(['hola' => 'mundo']);
-$api = new Api();
+$api = new Api($_REQUEST['request'], $_SERVER['REQUEST_METHOD']);
 
-$api->uri = $_GET['uri'];
-$api->server_method = $_SERVER['REQUEST_METHOD'];
+//$api->uri = $_GET['uri'];
+//$api->server_method = $_SERVER['REQUEST_METHOD'];
 
 $api->resolve();
-//echo $_GET['uri'];
 $api->call();
 
 //$api->debug();
